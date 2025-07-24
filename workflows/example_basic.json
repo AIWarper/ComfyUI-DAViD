@@ -1,0 +1,146 @@
+{
+  "last_node_id": 5,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [50, 200],
+      "size": [315, 314],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [1],
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {},
+      "widgets_values": ["example.jpg", "image"]
+    },
+    {
+      "id": 2,
+      "type": "DAViDMultiTask",
+      "pos": [400, 200],
+      "size": [315, 180],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "depth_map",
+          "type": "IMAGE",
+          "links": [2],
+          "shape": 3
+        },
+        {
+          "name": "normal_map",
+          "type": "IMAGE",
+          "links": [3],
+          "shape": 3
+        },
+        {
+          "name": "foreground_rgb",
+          "type": "IMAGE",
+          "links": [4],
+          "shape": 3
+        },
+        {
+          "name": "foreground_mask",
+          "type": "MASK",
+          "links": [5],
+          "shape": 3
+        }
+      ],
+      "properties": {},
+      "widgets_values": ["multitask-vitl16_384.onnx", false, false, 0.5]
+    },
+    {
+      "id": 3,
+      "type": "PreviewImage",
+      "pos": [800, 50],
+      "size": [200, 250],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 2
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 4,
+      "type": "PreviewImage",
+      "pos": [800, 350],
+      "size": [200, 250],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 3
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    },
+    {
+      "id": 5,
+      "type": "PreviewImage",
+      "pos": [800, 650],
+      "size": [200, 250],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "properties": {},
+      "widgets_values": []
+    }
+  ],
+  "links": [
+    [1, 1, 0, 2, 0, "IMAGE"],
+    [2, 2, 0, 3, 0, "IMAGE"],
+    [3, 2, 1, 4, 0, "IMAGE"],
+    [4, 2, 2, 5, 0, "IMAGE"],
+    [5, 2, 3, null, null, "MASK"]
+  ],
+  "groups": [
+    {
+      "title": "DAViD Multi-Task Processing",
+      "bounding": [30, 120, 1000, 850],
+      "color": "#3f789e"
+    }
+  ],
+  "config": {},
+  "extra": {},
+  "version": 0.4
+} 
