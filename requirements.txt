@@ -1,8 +1,14 @@
+# requirements.txt for ComfyUI-DAViD
+
+# The following core dependencies are expected to already be installed in the ComfyUI environment.
+# They are commented out to prevent version conflicts or redundant installations.
+# The ComfyUI-Manager will not attempt to install lines beginning with '#'.
+
 # Core dependencies for DAViD models
-onnxruntime>=1.16.0
-onnxruntime-gpu>=1.16.0  # For GPU support
-opencv-python>=4.8.0
-numpy>=1.24.0
-torch>=2.0.0
-torchvision>=0.15.0
-Pillow>=9.5.0 
+# onnxruntime>=1.16.0
+# onnxruntime-gpu>=1.16.0 (THIS ONE IS IMPORTANT AND YOU MAY NOT HAVE IT)
+# opencv-python>=4.8.0
+# numpy>=1.24.0
+# torch>=2.0.0
+# torchvision>=0.15.0
+# Pillow>=9.5.0
